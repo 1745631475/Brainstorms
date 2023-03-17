@@ -1,11 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
 
-public class BezierCurveTool
+/// <summary>
+/// 贝塞尔曲线工具
+/// </summary>
+public static class BezierCurveTool
 {
-    private List<Vector2> RecurveBezierCurve(float t, Vector2[] controlPos)
+    private static List<Vector2> RecurveBezierCurve(float t, Vector2[] controlPos)
     {
         float u = 1 - t;
         List<Vector2> newControlPos = new List<Vector2>();
@@ -19,12 +22,12 @@ public class BezierCurveTool
         return newControlPos;
     }
 
-    public Vector2 BezierCurve(float t, Vector2[] controlPos)
+    public static Vector2 BezierCurve(float t, Vector2[] controlPos)
     {
         return RecurveBezierCurve(t, controlPos)[0];
     }
 
-    public List<Vector2> CreateBezierCurve(Vector2[] controlPos, uint stepNum)
+    public static List<Vector2> CreateBezierCurve(Vector2[] controlPos, uint stepNum)
     {
         List<Vector2> CurvePointList = new List<Vector2>();
         for (uint i = stepNum; i > 0; i--)
@@ -33,6 +36,7 @@ public class BezierCurveTool
             Vector2 Point = BezierCurve(t, controlPos);
             CurvePointList.Add(Point);
         }
+        CurvePointList.Add(controlPos[0]);
         return CurvePointList;
     }
 }

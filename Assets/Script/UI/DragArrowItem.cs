@@ -13,8 +13,8 @@ namespace WrittenTest {
 
         //0：起始点 1：控制点1 2：控制点2 3：终点
         private Vector2[] m_Points = new Vector2[4];
-        private Vector2 m_ControlPoint1 = new Vector3(-1, 1);
-        private Vector2 m_ControlPoint2 = new Vector3(0.1f, 1.1f);
+        private Vector2 m_ControlPoint1 = new Vector3(-0.3f, 0.8f);
+        private Vector2 m_ControlPoint2 = new Vector3(0.1f, 1.4f);
 
         private Ray m_MouseRay;
         private RaycastHit[] m_HitInofos;

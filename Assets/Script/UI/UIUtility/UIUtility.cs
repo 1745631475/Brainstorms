@@ -5,7 +5,15 @@ namespace WrittenTest {
     public class UIUtility {
         private static UIUtility m_Instance;
 
-        public static UIUtility Instance => m_Instance ??= new UIUtility();
+        public static UIUtility Instance
+        {
+            get
+            {
+                if (m_Instance == null)
+                    m_Instance = new UIUtility();
+                return m_Instance;
+            }
+        }
 
         private List<Vector2> RecurveBezierCurve(float t, Vector2[] controlPos)
         {
